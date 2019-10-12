@@ -38,7 +38,7 @@ class User(AbstractUser):
     bio       = models.TextField(default="")
     birthday  = models.DateField(blank=True, null= True)
     gender    = models.CharField(choices=Gender_Choices, max_length=10, blank=True)
-    avatar    = models.ImageField(blank=True)
+    avatar    = models.ImageField(upload_to="profile_image", blank=True)
     language  = models.CharField(choices=Language_Choices, max_length=2, blank=True,
     default   = "Korean")
     currency  = models.CharField(choices=Currency_Choices, max_length=3, blank=True,

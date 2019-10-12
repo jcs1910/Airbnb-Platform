@@ -1,17 +1,96 @@
-from django.contrib import admin
-from .              import models
+from django.contrib    import admin
+from django.utils.html import mark_safe
+
+from .                 import models
 
 @admin.register(models.RoomType, models.Facility, models.Amenity, models.HouseRule)
 class ItemAdmin(admin.ModelAdmin):
 
-    pass
+    list_display = (
+        "name",
+        "used_by",
+    )
+
+    def used_by(self, obj):
+        return obj.rooms.count()
+
+class PhotoInline(admin.TabularInline):
+
+    model = models.Photo
 
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
-    pass
+    inlines = (PhotoInline,)
+    fieldsets = (
+        (
+            "Basic info",
+            {"fields": ("name", "description", "price", "country", "city", "address")}
+        ),
+        (
+            "Times",
+            {"fields":("check_in", "check_out", "instant_booking")}
+        ),
+        (
+            "Spaces",
+            {"fields":("guests", "beds", "bedrooms", "baths")}
+        ),
+        (
+            "More About the Space",
+            {
+                "classes": ("collapse",),
+                "fields" : ("amenities", "facilities", "house_rules"),
+            },
+        ),
+        (
+            "Last Details",
+            {"fields": ("host",)}
+        ),
+    )
+
+    list_display = (
+        "name",
+        "country",
+        "city",
+        "price",
+        "guests",
+        "beds",
+        "bedrooms",
+        "baths",
+        "check_in",
+        "check_out",
+        "instant_booking",
+        "count_amenities",
+        "count_photos",
+        "total_ratings",
+    )
+
+    list_filter = ("instant_booking",
+                    "host__superhost",
+                    'room_type',
+                    'amenities',
+                    'facilities',
+                    'house_rules',
+                    'city',
+                    'country',)
+
+    raw_id_fields = ("host",)
+
+    search_fields = ("^city", "^host__username")
+
+    filter_horizontal = ("amenities", "facilities", "house_rules")
+
+    def count_amenities(self, obj):
+        return obj.amenities.count()
+
+    def count_photos(self, obj):
+        return obj.photos.count()
 
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
+    list_display = ("__str__", "get_thumbnail")
 
-    pass
+    def get_thumbnail(self, obj):
+        return mark_safe(f'<img width="80px" src="{obj.file.url}" />')
+
+    get_thumbnail.short_description = "Thumbnail"
