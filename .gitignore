@@ -124,6 +124,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
+Pipfile
+Pipfile.lock
+
 # Pyre type checker
 .pyre/
 uploads/
