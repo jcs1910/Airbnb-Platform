@@ -5,8 +5,12 @@
 {% endblock page_name %}
 
 {% block content %}
-    {% for room in rooms %}
-        <h1>{{room.name}} / ${{room.price}}</h1>
+    {% for room in object_list %}
+        <h3>
+            <a href="{% url "rooms:detail" room.pk %}">
+                {{room.name}} / ${{room.price}}
+            </a>
+        </h3>
     {% endfor %}
 
     {% comment %}
