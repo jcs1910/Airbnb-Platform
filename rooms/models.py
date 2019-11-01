@@ -38,7 +38,7 @@ class HouseRule(CommonInfo):
 
 class Photo(core_models.TimeStampedModel):
 
-    caption = models.CharField(max_length            = 50)
+    caption = models.CharField(max_length=250, null=True)
     file    = models.ImageField(upload_to            = "room_photos")
     room    = models.ForeignKey("Room", related_name = "photos", on_delete = models.CASCADE)
 
@@ -79,6 +79,6 @@ class Room(core_models.TimeStampedModel):
         if len(all_reviews) > 0:
             for review in all_reviews:
                 all_ratings += review.rating_average()
-            return all_ratings / len(all_reviews)
+            return round(all_ratings / len(all_reviews))
         return 0
 

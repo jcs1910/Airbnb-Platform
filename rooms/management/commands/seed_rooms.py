@@ -62,3 +62,4 @@ class Command(BaseCommand):
                     room.house_rules.add(r)
 
         self.stdout.write(self.style.SUCCESS(f"{number} rooms created!"))
+
