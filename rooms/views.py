@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django_countries import countries
 
 from rooms.models import Room, RoomType, Amenity, Facility
+from rooms.forms import SearchForm
 
 class HomeView(ListView):
     model            = Room
@@ -19,6 +20,14 @@ class RoomDetail(DetailView):
     model = Room
 
 def search(request):
+    
+    form = SearchForm()
+
+    return render(request, "rooms/search.html", {"form": form})
+
+
+
+    """
     city                = request.GET.get("city", "Anywhere")
     city                = str.capitalize(city)
     country             = request.GET.get("country", "KR")
@@ -86,7 +95,7 @@ def search(request):
     rooms = Room.objects.filter(**filter_args)
 
     return render(request, "rooms/search.html", {**form, **choices, "rooms": rooms})
-
+    """
 
     """ - Function Based View (FBV)
 def room_detail(request, pk):

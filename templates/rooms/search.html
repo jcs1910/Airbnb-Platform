@@ -11,6 +11,9 @@
 
     <h2>Search!</h2>
     <form method="get" action="{% url "rooms:search" %}">
+        {{form.as_p}}
+
+    {% comment %}
         <div>
             <label for="city">City</label>
             <input value="{{city}}" placeholder="Search by City" />
@@ -62,7 +65,7 @@
             <label for="superhost">By SuperHost Only</label>
             <input value="{{superhost}}" type="checkbox" name="superhost" id="superhost" {% if superhost %}checked{% endif %} />
         </div>
-       
+
         <div>
             <h3>Amenities</h3>
             <ul>
@@ -100,6 +103,8 @@
                 {% endfor %}
             </ul>
         </div>
+        {% endcomment %}
+
         <button>Search</button>
     </form>
 
@@ -107,11 +112,4 @@
     {% for room in rooms %}
         <h3>{{room.name}}</h3>
     {% endfor %}
-
-
-
-
-
-
-
 {% endblock content %}
