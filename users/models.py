@@ -40,8 +40,9 @@ class User(AbstractUser):
     gender    = models.CharField(choices=Gender_Choices, max_length=10, blank=True)
     avatar    = models.ImageField(upload_to="profile_image", blank=True)
     language  = models.CharField(choices=Language_Choices, max_length=50, blank=True,
-    default   = "Korean")
+    default   = Language_KOREAN)
     currency  = models.CharField(choices=Currency_Choices, max_length=10, blank=True,
-    default   = "KRW")
+    default   = Currency_KRW)
+
     superhost = models.BooleanField(default=False)
 
