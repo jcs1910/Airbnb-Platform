@@ -130,3 +130,5 @@ Pipfile.lock
 # Pyre type checker
 .pyre/
 uploads/
+
+my_settings
