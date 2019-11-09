@@ -131,4 +131,5 @@ Pipfile.lock
 .pyre/
 uploads/
 
-my_settings
+my_settings.py
+
