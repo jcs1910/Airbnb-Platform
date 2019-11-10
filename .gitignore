@@ -130,6 +130,7 @@ Pipfile.lock
 # Pyre type checker
 .pyre/
 uploads/
+node_modules/
 
 my_settings.py
 

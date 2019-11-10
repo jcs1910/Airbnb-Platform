@@ -1,0 +1,18 @@
+{
+  "name": "airbnb",
+  "version": "1.0.0",
+  "description": "It's my first time to clone my airbnb project by myself with Python, Django, and Tailwind and more",
+  "repository": "https://github.com/jcs1910/airbnb-clone.git",
+  "scripts": {
+      "css": "gulp"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.1",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^3.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.0",
+    "tailwindcss": "^1.1.3"
+  }
+}

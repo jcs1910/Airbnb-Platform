@@ -144,4 +144,5 @@ EMAIL_HOST = "smtp.mailgun.org"
 EMAIL_PORT = "587"
 EMAIL_HOST_USER = EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_FROM = "myairbnb-admin@sandbox0f3aca79ab0d4395ad36b182b00c39c1.mailgun.org"
 
