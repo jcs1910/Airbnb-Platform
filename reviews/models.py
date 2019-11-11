@@ -1,4 +1,5 @@
 from django.db    import models
+
 from core         import models as core_models
 from users.models import User
 from rooms.models import Room
@@ -16,7 +17,7 @@ class Review(core_models.TimeStampedModel):
     room           = models.ForeignKey(Room, related_name="reviews", on_delete = models.CASCADE)
 
     def __str__(self):
-        return f"{self.room} - {self.review}"
+        return f"{self.review} - {self.room}"
 
     def rating_average(self):
         avg = (self.accuracy + self.communications + self.cleanliness
