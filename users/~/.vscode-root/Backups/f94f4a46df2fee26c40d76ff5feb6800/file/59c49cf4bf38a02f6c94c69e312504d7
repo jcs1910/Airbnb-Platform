@@ -1,0 +1,5 @@
+file:///home/jeon/Desktop/nomad_coders/airbnb/templates/messages.html {"mtime":1573731085853,"size":0,"etag":"346kiiaca0","orphaned":false}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags}
