@@ -1,3 +1,54 @@
+# cach관련 파일
+**/__pycache__
+
+# 도스관련 파일
+**/.DS_Store
+
+# Django 환경파일
+my_settings.py
+
+# swp파일
+*.swp
+
+# Vim
+*.swp
+*.swo
+*.swn
+*.swm
+*.*un~
+tags
+/csv
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+
 Pipfile
 Pipfile.lock
 
