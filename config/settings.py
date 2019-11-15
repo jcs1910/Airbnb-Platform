@@ -1,11 +1,10 @@
 import os
 import my_settings
 
-from my_settings import SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
+from my_settings import SECRET_KEY, MAILGUN_USERNAME, MAILGUN_PASSWORD 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -144,7 +143,7 @@ MEDIA_URL       = "/media/"
 
 EMAIL_HOST = "smtp.mailgun.org"
 EMAIL_PORT = "587"
-EMAIL_HOST_USER = EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
-EMAIL_FROM = "myairbnb-admin@sandbox0f3aca79ab0d4395ad36b182b00c39c1.mailgun.org"
+EMAIL_HOST_USER = MAILGUN_USERNAME
+EMAIL_HOST_PASSWORD = MAILGUN_PASSWORD
+EMAIL_FROM = "sexy-guy@sandbox0f3aca79ab0d4395ad36b182b00c39c1.mailgun.org"
 

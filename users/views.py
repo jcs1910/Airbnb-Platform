@@ -40,18 +40,20 @@ class SignUpView(FormView):
 
     def form_valid(self, form):
         form.save()
-        email = form.cleaned_data.get("eemail")
+        email = form.cleaned_data.get("email")
         password = form.cleaned_data.get("password")
         user = authenticate(self.request, username=email, password=password)
         if user is not None:
             login(self.request, user)
-            user.verify_email()
+        user.verify_email()
         return super().form_valid(form)
 
 def github_login(request):
     client_id = Github_ID
     redirect_uri = "http://127.0.0.1:8000/users/login/github/callback"
-    return redirect(f"https://github.com/login/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read:user")
+    return redirect(
+        f"https://github.com/login/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&scope=read:user"
+    )
 
 class GithubException(Exception):
     pass
